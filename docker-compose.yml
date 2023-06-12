@@ -1,0 +1,23 @@
+version: '3.9' #undone!
+services:
+  nginx:
+    mem_limit: 128m
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '80:80'
+  client:
+    mem_limit: 64m
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+  api:
+    mem_limit: 512m
+    build:
+      dockerfile: Dockerfile
+      context: ./server

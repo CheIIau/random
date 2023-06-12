@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Small fastify backend",
+  "main": "app.js",
+  "scripts": {
+    "dev": "tsnd --respawn --transpile-only --exit-child app.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "tsc && node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^8.2.1",
+    "fastify": "^4.17.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^2.0.1",
+    "@types/node": "^20.1.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4",
+    "tsm": "^2.3.0"
+  }
+}

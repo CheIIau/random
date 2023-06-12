@@ -1,0 +1,12 @@
+FROM node:20-alpine as builder
+WORKDIR "/frontend" 
+# frontend instead of app due to bug in nuxt https://github.com/nuxt/nuxt/issues/20446
+COPY ./package.json ./
+RUN npm install
+COPY . .
+
+ENV BASE_URL=http://api:5000
+ENV NUXT_HOST=0.0.0.0
+ENV NUXT_PORT=3000
+EXPOSE 3000
+CMD ["npm", "run", "dev"]

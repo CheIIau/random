@@ -1,0 +1,31 @@
+version: '3.9' #currently does not work
+services:
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '80:80'
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+  client:
+    environment:
+      - WDS_SOCKET_HOST=localhost
+      - WDS_SOCKET_PORT=3000
+    ports:
+      - 24678:24678 #need for hmr to work
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /frontend/node_modules #frontend instead of app due to bug in nuxt https://github.com/nuxt/nuxt/issues/20446
+      - ./client:/frontend

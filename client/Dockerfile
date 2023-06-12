@@ -1,4 +1,4 @@
-FROM node:18-alpine as builder
+FROM node:20-alpine as builder
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ RUN npm install
 COPY . .
 
 ENV NODE_ENV production
-
+ENV BASE_URL=http://api:5000
 RUN npm run build
 
 ENV NUXT_HOST=0.0.0.0

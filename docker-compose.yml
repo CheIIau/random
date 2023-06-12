@@ -1,4 +1,4 @@
-version: '3.9' #undone!
+version: '3.9'
 services:
   nginx:
     mem_limit: 128m

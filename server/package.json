@@ -19,7 +19,7 @@
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "^20.1.4",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.0.4",
-    "tsm": "^2.3.0"
+    "tsm": "^2.3.0",
+    "typescript": "^5.0.4"
   }
 }

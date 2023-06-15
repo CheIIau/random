@@ -5,6 +5,9 @@ export default defineNuxtConfig({
     head: {
       meta: [{ content: 'Some Random Stuff', name: 'description' }],
       title: 'Random Stuff'
+    },
+    layoutTransition: {
+      name: 'fast-slide-in'
     }
   },
   css: ['@/assets/css/main.css'],

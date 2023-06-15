@@ -7,10 +7,10 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}'
   ],
-  theme: {
-    extend: {}
-  },
   plugins: [
     require('@tailwindcss/forms')
-  ]
+  ],
+  theme: {
+    extend: {}
+  }
 }

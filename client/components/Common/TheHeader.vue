@@ -89,10 +89,15 @@ const links = [
   {
     label: 'Tab Killer',
     to: 'tabkiller'
+  },
+  {
+    label: 'Epilepsy check',
+    to: 'epilepsycheck'
   }
 ]
 </script>
 
-<style lang="postcss">.logo-icon {
+<style lang="postcss">
+.logo-icon {
   @apply fill-current text-white w-10 h-10;
 }</style>

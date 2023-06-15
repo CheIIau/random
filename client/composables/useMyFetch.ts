@@ -4,7 +4,7 @@ type useFetchType = typeof useFetch
 
 export const useAPIFetch: useFetchType = (path, options = {}) => {
   const config = useRuntimeConfig()
-  
+
   if (process.server || config.public.baseUrl.includes('localhost')) {
     options.baseURL = config.public.baseUrl
   } else {

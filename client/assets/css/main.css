@@ -1,3 +1,30 @@
 body {
   overflow-x: hidden;
 }
+.fast-slide-in-enter-active,
+.fast-slide-in-leave-active {
+  transition: all 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fast-slide-in-enter-from,
+.fast-slide-in-leave-to {
+  opacity: 0;
+}
+
+.slow-slide-in-enter-active,
+.slow-slide-in-leave-active {
+  transition: all 0.7s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.slow-slide-in-enter-from,
+.slow-slide-in-leave-to {
+  opacity: 0;
+}

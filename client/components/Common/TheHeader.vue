@@ -48,7 +48,7 @@
       </button>
     </nav>
     <Teleport to="body">
-      <TheDialog
+      <TheDrawer
         :show="dialog"
         @close="dialog = !dialog"
       >
@@ -70,13 +70,13 @@
             About
           </NuxtLink>
         </div>
-      </TheDialog>
+      </TheDrawer>
     </Teleport>
   </header>
 </template>
 
 <script setup lang="ts">
-import TheDialog from './TheDialog.vue'
+import TheDrawer from './TheDrawer.vue'
 import { ref } from '#imports'
 
 const dialog = ref(false)

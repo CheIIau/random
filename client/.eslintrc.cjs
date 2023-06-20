@@ -12,6 +12,7 @@ module.exports = {
     'no-console': 'off',
     'perfectionist/sort-imports': 'off',
     'perfectionist/sort-objects': 'off',
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    'arrow-parens': 'off'
   }
 }

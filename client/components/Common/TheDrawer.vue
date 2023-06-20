@@ -44,6 +44,7 @@
         </div>
         <div class="mt-6 bg-white">
           <div class="-my-6 divide-y divide-gray-500/10" @click="emit('close')">
+            <!-- @slot Default slot to show content -->
             <slot />
           </div>
         </div>

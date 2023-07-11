@@ -9,7 +9,10 @@
           <h3 class="text-white text-lg font-bold">
             To check if you have epilepsy push to button below
           </h3>
-          <p v-if="testDone" class="text-white mb-6 mt-2">
+          <p
+            v-if="testDone"
+            class="text-white mb-6 mt-2"
+          >
             If you're still there well done. Wanna try again?
           </p>
           <ButtonComponent
@@ -38,7 +41,8 @@ definePageMeta({
   layout: 'custom',
   layoutTransition: {
     name: 'slow-slide-in'
-  }
+  },
+  title: 'Epilepsy check'
 })
 
 const runningTest = ref(false)

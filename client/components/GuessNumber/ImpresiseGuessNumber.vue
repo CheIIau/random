@@ -79,7 +79,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from '#imports'
+import { ref } from 'vue'
 import ButtonComponent from '~/components/Common/UI/ButtonComponent.vue'
 import InputComponent from '~/components/Common/UI/InputComponent.vue'
 

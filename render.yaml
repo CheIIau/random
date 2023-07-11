@@ -1,0 +1,28 @@
+services: # not gonna work. sadly but render does not support nginx as reverse proxy
+  - type: web
+    name: nginx
+    runtime: docker
+    region: frankfurt
+    rootDir: nginx
+    dockerfilePath: ./nginx/Dockerfile
+    dockerContext: ./nginx
+    envVars:
+      - key: PORT
+        value: 80
+    plan: free
+  - type: web
+    name: client
+    runtime: docker
+    region: frankfurt
+    rootDir: client
+    dockerfilePath: ./client/Dockerfile
+    dockerContext: ./client
+    plan: free
+  - type: web
+    name: api
+    runtime: docker
+    region: frankfurt
+    rootDir: server
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: ./server
+    plan: free

@@ -8,6 +8,10 @@
 <script setup lang="ts">
 import ComputerGuessNumber from '~/components/GuessNumber/ImpresiseGuessNumber.vue'
 import UserGuessNumber from '~/components/GuessNumber/PreciseGuessNumber.vue'
+import { definePageMeta } from '#imports'
+definePageMeta({
+  title: 'Guess a Number'
+})
 </script>
 
 <style>

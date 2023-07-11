@@ -76,28 +76,32 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'nuxt/app'
 import TheDrawer from './TheDrawer.vue'
-import { ref } from '#imports'
 
 const dialog = ref(false)
 
-const links = [
-  {
-    label: 'Guess a number',
-    to: 'guessnumber'
-  },
-  {
-    label: 'Tab Killer',
-    to: 'tabkiller'
-  },
-  {
-    label: 'Epilepsy check',
-    to: 'epilepsycheck'
-  }
-]
+// const links = [
+//   {
+//     label: 'Guess a number',
+//     to: 'guessnumber'
+//   },
+//   {
+//     label: 'Tab Killer',
+//     to: 'tabkiller'
+//   },
+//   {
+//     label: 'Epilepsy check',
+//     to: 'epilepsycheck'
+//   }
+// ]
+const $router = useRouter()
+const links = $router.getRoutes().filter((route) => route.path.length !== 1).map((route) => ({ label: route.meta.title, to: route.path }))
 </script>
 
 <style lang="postcss">
 .logo-icon {
   @apply fill-current text-white w-10 h-10;
-}</style>
+}
+</style>

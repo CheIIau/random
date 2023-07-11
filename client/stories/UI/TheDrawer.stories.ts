@@ -1,8 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import TheDrawer from '../components/Common/TheDrawer.vue'
+import TheDrawer from '../../components/Common/TheDrawer.vue'
 
 const meta = {
   title: 'Drawer',
+  parameters: {
+    docs: {
+      description: {
+        component: 'Shows on small screens only'
+      }
+    }
+  },
   component: TheDrawer,
   tags: ['autodocs'],
   argTypes: {
@@ -18,7 +25,7 @@ type Story = StoryObj<typeof meta>
 export const Usual: Story = {
   render: (args) => ({
     components: { TheDrawer },
-    template: '<TheDrawer v-bind="args" >Text</TheDrawer>',
+    template: '<TheDrawer v-bind="args">Text</TheDrawer>',
     setup() {
       return { args }
     }
@@ -27,9 +34,3 @@ export const Usual: Story = {
     show: true
   }
 }
-
-// export const Disabled: Story = {
-//   args: {
-//     disabled: true
-//   }
-// }

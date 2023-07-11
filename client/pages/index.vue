@@ -1,42 +1,39 @@
 <template>
   <div class="mx-auto max-w-2xl">
-    <div
-      v-for="user in users?.data"
-      :key="user.id"
-      class="mb-3"
-    >
-      <p>
-        <span class="mr-2">{{ user.id }}</span>{{ user.name }}
-      </p>
-    </div>
-    <div class="mb-3">
+    <p class="text-gray-700 font-medium text-lg text-center">
+      Small site with absolute random stuff
+    </p>
+    <div class="mt-5 flex justify-center">
       <ButtonComponent
-        label="Fetch some data"
-        @click="fetchData"
+        label="Try something random"
+        @click="openRandomPage"
       />
-    </div>
-    <div v-if="pong">
-      {{ pong }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from '#imports'
+import { useRouter } from 'nuxt/app'
 import ButtonComponent from '~/components/Common/UI/ButtonComponent.vue'
 import { $apiFetch, useAPIFetch } from '~/composables/useMyFetch'
-interface TestDataResponse {
-  data: {
-    id: number
-    name: string,
-  }[]
-}
-interface Pong {
-  text: 'pong'
-}
-const pong = ref<Pong>()
-const { data: users } = await useAPIFetch<TestDataResponse>('/testdata/')
-async function fetchData() {
-  pong.value = await $apiFetch<Pong>('/ping/')
+// interface TestDataResponse {
+//   data: {
+//     id: number
+//     name: string,
+//   }[]
+// }
+// interface Pong {
+//   text: 'pong'
+// }
+// const pong = ref<Pong>()
+// const { data: users } = await useAPIFetch<TestDataResponse>('/testdata/')
+// async function fetchData() {
+//   pong.value = await $apiFetch<Pong>('/ping/')
+// }
+const $router = useRouter()
+function openRandomPage() {
+  const routes = $router.getRoutes().filter((route) => route.path.length !== 1)
+  const randomNumber = Math.floor(Math.random() * (routes.length))
+  return $router.push(routes[randomNumber])
 }
 </script>

@@ -19,7 +19,11 @@
 </template>
 
 <script setup lang="ts">
+import { definePageMeta } from '#imports'
 import ButtonComponent from '~/components/Common/UI/ButtonComponent.vue'
+definePageMeta({
+  title: 'Tab Killer'
+})
 const killTab = () => {
   while (true) {
     let i = 1

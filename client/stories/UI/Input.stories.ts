@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import InputComponent from '../components/Common/UI/InputComponent.vue'
+import InputComponent from '../../components/Common/UI/InputComponent.vue'
 
 const meta = {
   component: InputComponent,
@@ -9,6 +9,9 @@ const meta = {
     disabled: {
       description: 'Disables the input'
     }
+  },
+  parameters: {
+    layout: 'centered'
   }
 } satisfies Meta<typeof InputComponent>
 

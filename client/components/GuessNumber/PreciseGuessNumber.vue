@@ -75,8 +75,8 @@
 </template>
 
 <script setup lang="ts">
+import { nextTick, ref } from 'vue'
 import ButtonComponent from '../Common/UI/ButtonComponent.vue'
-import { nextTick, ref } from '#imports'
 const numbers = ref({
   firstAddStepAmount: 0,
   fourthAddStepAmount: 0,

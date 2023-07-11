@@ -2,11 +2,12 @@
   <Transition name="slide-fade">
     <div
       v-show="show"
-      class="lg:hidden fixed h-screen top-0 right-0 w-full"
+      class="lg:hidden fixed h-screen top-0 right-0 w-full z-50"
       role="dialog"
       aria-modal="true"
     >
       <div
+        ref="dialog"
         class="fixed h-screen top-0 right-0 z-10 w-full overflow-visible bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
       >
         <div class="flex items-center justify-between">
@@ -15,7 +16,10 @@
             class="-m-1.5 p-1.5"
           >
             <div class="fill-current text-emerald-700 w-10 h-10;">
-              <svg class="hover:animate-spin" viewBox="0 0 500 500">
+              <svg
+                class="hover:animate-spin"
+                viewBox="0 0 500 500"
+              >
                 <use xlink:href="~assets/images/icons.svg#random" />
               </svg>
             </div>
@@ -43,7 +47,10 @@
           </button>
         </div>
         <div class="mt-6 bg-white">
-          <div class="-my-6 divide-y divide-gray-500/10" @click="emit('close')">
+          <div
+            class="-my-6 divide-y divide-gray-500/10"
+            @click="emit('close')"
+          >
             <!-- @slot Default slot to show content -->
             <slot />
           </div>
@@ -54,7 +61,9 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
+const props = defineProps({
   show: {
     required: true,
     type: Boolean
@@ -64,6 +73,17 @@ const emit = defineEmits<{ (e: 'close'): void }>()
 defineSlots<{
   default(props: {}): void
 }>()
+// const closeDialog = () => {
+//   if (props.show) {
+//     emit('close')
+//   }
+// }
+const dialog = ref(null)
+onClickOutside(dialog, () => {
+  if (props.show) {
+    emit('close')
+  }
+})
 </script>
 
 <style lang="postcss">

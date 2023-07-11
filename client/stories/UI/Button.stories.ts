@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import ButtonComponent from '../components/Common/UI/ButtonComponent.vue'
+import ButtonComponent from '../../components/Common/UI/ButtonComponent.vue'
 
 const meta = {
   component: ButtonComponent,
@@ -25,6 +25,19 @@ const meta = {
         type: 'select'
       },
       options: ['small', 'medium', 'large']
+    },
+    onClick: {
+      action: 'clicked'
+    }
+  },
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      values: [
+        { name: 'red', value: '#f00' },
+        { name: 'green', value: '#0f0' },
+        { name: 'blue', value: '#00f' }
+      ]
     }
   }
 } satisfies Meta<typeof ButtonComponent>

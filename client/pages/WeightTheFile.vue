@@ -91,7 +91,7 @@
 import { ref } from 'vue'
 import { useDropZone } from '@vueuse/core'
 import ButtonComponent from '../components/Common/UI/ButtonComponent.vue'
-import { $apiFetch, useAPIFetch } from '~/composables/useMyFetch'
+import { $apiFetch, useAPIFetch } from '../composables/useMyFetch'
 import { definePageMeta, onBeforeMount, onBeforeUnmount, useState } from '#imports'
 
 definePageMeta({
@@ -186,6 +186,7 @@ onBeforeUnmount(() => {
 // async function fetchData() {
 //   pong.value = await $apiFetch<Pong>('/ping/')
 // }
+
 </script>
 
 <style lang="postcss">

@@ -138,13 +138,13 @@ const sectorTextInputs = ref<string[]>([])
 watch(colors, () => {
   const inputs: { value: string }[] = []
   for (let i = 0; i < colors.value; i++) {
-    inputs.push({ value: '' })
+    inputs.push({ value: i + 1 + '' })
   }
   sectorTextInputs.value = inputs
 }, { immediate: true })
 
 const clearInputs = () => {
-  sectorTextInputs.value.forEach((input) => input.value = '')
+  sectorTextInputs.value.forEach((input, i) => { input.value = i + 1 + '' })
 }
 
 const showSectorsTextInputs = ref(false)
@@ -199,8 +199,12 @@ function spin() {
   const sectorIndex = calculateSectorIndex(degressWithSectorShift, +previousRotationDegrees)
 
   timeout = setTimeout(() => {
-    result.value = sectorIndex + 1
     isSpinning.value = false
+    if (sectorTextInputs.value[sectorIndex].value) {
+      result.value = sectorTextInputs.value[sectorIndex].value
+    } else {
+      result.value = sectorIndex + 1
+    }
   }, SPIN_TIME * 1000)
 }
 
